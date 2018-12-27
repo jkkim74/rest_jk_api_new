@@ -1,8 +1,6 @@
 package com.jk.api.demojkapi.events;
 
 import lombok.*;
-import net.bytebuddy.implementation.bind.annotation.AllArguments;
-
 import java.time.LocalDateTime;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
