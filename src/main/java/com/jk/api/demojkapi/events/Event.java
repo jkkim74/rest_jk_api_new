@@ -1,12 +1,16 @@
 package com.jk.api.demojkapi.events;
 
 import lombok.*;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of="id")
+@Entity
 public class Event {
 
+    @Id @GeneratedValue
     private Integer id;
     private String name;
     private String description;
@@ -19,6 +23,7 @@ public class Event {
     private int maxPrice; // (optional)
     private int limitOfEnrollment;
     private boolean offLine;
+    @Enumerated(EnumType.STRING)
     private EventStatus eventStatus;
 
 }
