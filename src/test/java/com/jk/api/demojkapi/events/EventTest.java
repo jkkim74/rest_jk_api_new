@@ -16,13 +16,16 @@ public class EventTest {
 
     @Test
     public void javaBean(){
-        Event event = new Event();
+        // Given
         String name = "Event";
+        String description = "Spring";
+        //When
+        Event event = new Event();
         event.setName(name);
-        String spring = "Spring";
-        event.setDescription(spring);
+        event.setDescription(description);
+        //Then
         assertThat(event.getName()).isEqualTo(name);
-        assertThat(event.getDescription()).isEqualTo(spring);
+        assertThat(event.getDescription()).isEqualTo(description);
 
     }
 
