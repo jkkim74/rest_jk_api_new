@@ -48,35 +48,17 @@ public class EventControllerTests {
                       .maxPrice(200)
                       .limitOfEnrollment(100)
                       .location("강남역 D2 스타텁 팩토리").build();
+         event.setId(10);
+         Mockito.when(eventRepository.save(event)).thenReturn(event);
          mocMvc.perform(post("/api/events/")
                               .contentType(MediaType.APPLICATION_JSON_UTF8)
                               .accept(MediaTypes.HAL_JSON)
                               .content(objectMapper.writeValueAsString(event)))
                  .andDo(print())
                  .andExpect(status().isCreated())
-                 .andExpect(jsonPath("id").exists());
-//        Event event = Event.builder()
-//                      .name("Spring")
-//                      .description("REST API Document With Spring")
-//                      .beginEnrollmentDateTime(LocalDateTime.of(2018,12,27,16,57))
-//                      .closeEnrollmentDateTime(LocalDateTime.of(2018,12,28,16,57))
-//                      .beginEventDateTime(LocalDateTime.of(2018,12,27,16,57))
-//                      .endEventDateTime(LocalDateTime.of(2018,12,28,16,57))
-//                      .basePrice(100)
-//                      .maxPrice(200)
-//                      .limitOfEnrollment(100)
-//                      .location("강남역 D2 스타텁 팩토리").build();
-//        event.setId(10);
-//        Mockito.when(eventRepository.save(event)).thenReturn(event);
-//        mocMvc.perform(post("/api/events/")
-//                   .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                   .accept(MediaTypes.HAL_JSON)
-//                   .content(objectMapper.writeValueAsString(event)))
-//                .andDo(print())
-//                .andExpect(status().isCreated())
-//                .andExpect(jsonPath("id").exists())
-//                .andExpect(header().exists(HttpHeaders.LOCATION))
-//                .andExpect(header().string(HttpHeaders.CONTENT_TYPE,MediaTypes.HAL_JSON_UTF8_VALUE));
+                 .andExpect(jsonPath("id").exists())
+                 .andExpect(header().exists(HttpHeaders.LOCATION))
+                 .andExpect(header().string(HttpHeaders.CONTENT_TYPE,MediaTypes.HAL_JSON_UTF8_VALUE));
     }
 
 }
