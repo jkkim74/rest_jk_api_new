@@ -114,7 +114,7 @@ public class EventControllerTests {
                 .name("Spring")
                 .description("REST API Document With Spring")
                 .beginEnrollmentDateTime(LocalDateTime.of(2018,12,27,16,57))
-                .closeEnrollmentDateTime(LocalDateTime.of(2018,12,28,16,57))
+                .closeEnrollmentDateTime(LocalDateTime.of(2018,12,22,16,57))
                 .beginEventDateTime(LocalDateTime.of(2018,12,27,16,57))
                 .endEventDateTime(LocalDateTime.of(2018,12,23,16,57))
                 .basePrice(10000)

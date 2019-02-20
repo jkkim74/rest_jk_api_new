@@ -42,7 +42,6 @@ public class EventController {
         if(errors.hasErrors()){
             return ResponseEntity.badRequest().build();
         }
-
         Event event = modelMapper.map(eventDto, Event.class);
         Event newEvent = this.eventRepository.save(event);
         URI createUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
