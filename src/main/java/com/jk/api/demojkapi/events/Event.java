@@ -29,4 +29,17 @@ public class Event {
     @Enumerated(EnumType.STRING) // 기본값이 ordinary인데, String으로 해주는것이 좋다. 값의 순서가 바뀔수 있다.
     private EventStatus eventStatus = EventStatus.DRAFT;
 
+    public void update() {
+        if(this.basePrice == 0 && this.maxPrice == 0){
+            this.free = true;
+        }else{
+            this.free = false;
+        }
+        // java 11에서 isBlank추가됨..
+        if(this.location.isBlank() || this.location == null){
+            this.offLine = false;
+        }else{
+            this.offLine = true;
+        }
+    }
 }
