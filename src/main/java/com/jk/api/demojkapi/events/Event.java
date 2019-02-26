@@ -36,7 +36,7 @@ public class Event {
             this.free = false;
         }
         // java 11에서 isBlank추가됨..
-        if(this.location.isBlank() || this.location == null){
+        if(this.location == null || this.location.isEmpty() ){
             this.offLine = false;
         }else{
             this.offLine = true;
